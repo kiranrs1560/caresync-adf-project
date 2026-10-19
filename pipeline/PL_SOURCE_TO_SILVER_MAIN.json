@@ -136,7 +136,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "update ctrl.audit_log set status = 'FAILED', end_time = SYSUTCDATETIME()\nwhere adf_run_id = @{pipeline().parameters.adf_run_id} and table_id = @{item().table_id};",
+											"value": "@concat(\n    'UPDATE ctrl.audit_log SET status = ''FAILED'', end_time = SYSUTCDATETIME() WHERE adf_run_id = ''',\n    pipeline().parameters.adf_run_id,\n    ''' AND table_id = ',\n    string(item().table_id),\n    ';'\n)",
 											"type": "Expression"
 										}
 									}
@@ -155,7 +155,7 @@
 			},
 			"adf_run_id": {
 				"type": "string",
-				"defaultValue": "a3"
+				"defaultValue": "a4"
 			}
 		},
 		"variables": {
