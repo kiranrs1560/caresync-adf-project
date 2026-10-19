@@ -100,7 +100,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "@concat(\n    'INSERT INTO ctrl.audit_log (adf_run_id, table_id, stage, status, start_time) VALUES (''',\n    pipeline().parameters.adf_run_id,\n    ''', ',\n    string(item().table_id),\n    ', ''SOURCE_TO_SILVER'', ''IN_PROGRESS'', SYSUTCDATETIME())'\n)",
+											"value": "@concat(\n    'INSERT INTO ctrl.audit_log (adf_run_id, table_id, stage, status, start_time) VALUES (''',\n    pipeline().parameters.adf_run_id,\n    ''', ',\n    item().table_id,\n    ', ''SOURCE_TO_SILVER'', ''IN_PROGRESS'', SYSUTCDATETIME())'\n)",
 											"type": "Expression"
 										}
 									}
@@ -136,7 +136,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "@concat(\n    'UPDATE ctrl.audit_log SET status = ''FAILED'', end_time = SYSUTCDATETIME() WHERE adf_run_id = ''',\n    pipeline().parameters.adf_run_id,\n    ''' AND table_id = ',\n    string(item().table_id),\n    ';'\n)",
+											"value": "@concat(\n    'UPDATE ctrl.audit_log SET status = ''FAILED'', end_time = SYSUTCDATETIME() WHERE adf_run_id = ''',\n    pipeline().parameters.adf_run_id,\n    ''' AND table_id = ',\n    item().table_id,\n    ';'\n)",
 											"type": "Expression"
 										}
 									}
