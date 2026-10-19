@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-caresync-18oct"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "1018-172313-skrjmoij"
+		},
+		"LS_ADLS_properties_typeProperties_url": {
+			"value": "https://caresyncproject18oct.dfs.core.windows.net/"
+		},
+		"LS_KeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://caresync-key-18oct.vault.azure.net/"
+		},
+		"LS_POSTGRESS_properties_typeProperties_server": {
+			"value": "ep-raspy-water-b54yocyy-pooler.c-7.us-east-2.aws.neon.tech"
+		},
+		"LS_POSTGRESS_properties_typeProperties_database": {
+			"value": "neondb"
+		},
+		"LS_POSTGRESS_properties_typeProperties_username": {
+			"value": "neondb_owner"
+		},
+		"LS_SQL_DB_properties_typeProperties_server": {
+			"value": "caresyncserver-18oct.database.windows.net"
+		},
+		"LS_SQL_DB_properties_typeProperties_database": {
+			"value": "sql-db-caresync"
+		},
+		"LS_SQL_DB_properties_typeProperties_userName": {
+			"value": "kiran"
+		}
+	}
+}
