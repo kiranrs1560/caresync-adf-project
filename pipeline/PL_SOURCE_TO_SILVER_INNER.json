@@ -227,7 +227,38 @@
 						{
 							"type": "Query",
 							"text": {
-								"value": "@concat(\n    'UPDATE ctrl.audit_log SET status = ''FAILED'', end_time = SYSUTCDATETIME(), records_written = ',\n    activity('bronze_to_silver').output.runOutput,\n    ' WHERE adf_run_id = ''',\n    pipeline().parameters.adf_run_id,\n    ''' AND table_id = ',\n    pipeline().parameters.table_id,\n    ';'\n)",
+								"value": "@concat(\n    'UPDATE ctrl.audit_log SET status = ''SUCCESS'', end_time = SYSUTCDATETIME(), records_written = ',\n    activity('bronze_to_silver').output.runOutput,\n    ' WHERE adf_run_id = ''',\n    pipeline().parameters.adf_run_id,\n    ''' AND table_id = ',\n    pipeline().parameters.table_id,\n    '; SELECT @@ROWCOUNT AS rows_updated;'\n)",
+								"type": "Expression"
+							}
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			},
+			{
+				"name": "test",
+				"type": "Script",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "LS_SQL_DB",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": {
+								"value": "UPDATE ctrl.audit_log\nSET status = 'SUCCESS',\n    end_time = SYSUTCDATETIME(),\n    records_written = 100\nWHERE adf_run_id = 'a20'\n  AND table_id = 1;\n\nSELECT @@ROWCOUNT AS rows_updated;",
 								"type": "Expression"
 							}
 						}
