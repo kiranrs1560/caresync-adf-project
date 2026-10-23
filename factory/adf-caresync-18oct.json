@@ -5,6 +5,10 @@
 			"email_receipent": {
 				"type": "string",
 				"value": "kiranrs14@gmail.com"
+			},
+			"env": {
+				"type": "string",
+				"value": "DEV"
 			}
 		}
 	},
