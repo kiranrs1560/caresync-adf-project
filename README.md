@@ -30,7 +30,7 @@ The solution enables ingestion, transformation, governance, auditing, and consum
 The platform follows a Metadata-Driven Azure Lakehouse Architecture that combines Azure Data Factory orchestration, Databricks-based transformations, centralized governance, and multiple consumption layers.
 
 <p align="center">
-  <img src="assets/caresync-architecture.png" alt="CareSync Architecture" width="1000"/>
+  <img src=".assets/caresync-architecture.png" alt="CareSync Architecture" width="1000"/>
 </p>
  
 ---
