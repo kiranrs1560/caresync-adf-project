@@ -32,7 +32,7 @@ The platform follows a Metadata-Driven Azure Lakehouse Architecture that combine
 <p align="center">
   <img src="assets/caresync-architecture.png" alt="CareSync Architecture" width="1000"/>
 </p>
-
+ 
 ---
 
 ## Architecture Components
